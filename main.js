@@ -5,14 +5,13 @@ const SK=[["code","Desenvolvimento Front-End",["HTML5","CSS3","JavaScript","Reac
 ["mon","Tecnologia da Informação",["Suporte técnico","Redes de computadores","Sistemas operacionais","Segurança da informação","Atendimento ao usuário","Microsoft 365","Configuração de e-mails corporativos"]],
 ["bag","Conhecimentos administrativos",["Microsoft Excel","Microsoft Word","Microsoft PowerPoint","Pacote Office","Controle de estoque e almoxarifado","Organização de informações administrativas","Controle de pagamentos"]]];
 $('#sk').innerHTML=SK.map(([i,t,l,n])=>`<div class="card rv${n?' feat':''}"><div class="sh">${ic(i)}<h3>${t}</h3>${n?`<span class="badge">${n}</span>`:''}</div>${tags(l)}</div>`).join('');
-// Para adicionar projetos, preencha o array PJ. Exemplo:
-// {t:"Nome",k:"Tipo do projeto",d:"Descrição.",tech:["HTML","CSS"],r:["Minha participação."],demo:"https://...",repo:"https://github.com/georgederick/..."}
+
 const PJ=[
 {t:"Conecta-Tech",k:"Site educacional",d:"Site educacional voltado para quem quer aprender programação.",tech:["JavaScript"],r:[],demo:"",repo:"https://github.com/georgederick/Conecta-Tech"},
 {t:"Seleção de perfis da Netflix",k:"Recriação de interface",d:"Recriação da página de seleção de perfis da Netflix.",tech:["CSS"],r:[],demo:"",repo:"https://github.com/georgederick/selection-netflix-profiles"}
 ];
 $('#pj').innerHTML=PJ.length?PJ.map(p=>`<div class="card proj rv"><div class="art fabric" aria-hidden="true"><div class="dots" style="inset:0;opacity:.2"></div><svg class="wf" style="position:relative;animation:none"><use href="#wf"/></svg></div><div><p class="muted">${p.k}</p><h3>${p.t}</h3><p class="tx" style="margin:.75rem 0 1rem">${p.d}</p>${tags(p.tech)}${p.r&&p.r.length?`<h4 style="margin:1.5rem 0 .5rem">Minha participação</h4><ul class="d">${p.r.map(x=>`<li>${x}</li>`).join('')}</ul>`:''}<div class="row">${p.demo?`<a class="btn s" href="${p.demo}" target="_blank" rel="noopener noreferrer">${ic('ext')}Demonstração</a>`:'<span class="soon">Demonstração em breve</span>'}${p.repo?`<a class="btn" href="${p.repo}" target="_blank" rel="noopener noreferrer">${ic('gh')}Repositório</a>`:'<span class="soon">Repositório em breve</span>'}</div></div></div>`).join(''):'<div class="card rv" style="text-align:center;padding:4rem 1.5rem"><h3 style="font-size:1.5rem">Em atualização</h3><p class="muted" style="margin-top:.5rem">Novos projetos serão publicados em breve.</p></div>';
-// Cards "Atualizando": projetos em andamento (troque por um objeto em PJ quando estiverem prontos)
+
 $('#pj').insertAdjacentHTML('beforeend','<div class="g3">'+Array(3).fill('<div class="card rv" style="text-align:center;padding:2.5rem 1.5rem"><span class="pulse"></span><h3 style="font-size:1.25rem;margin-top:1rem">Atualizando</h3><p class="muted" style="margin-top:.5rem">Novo projeto em desenvolvimento.</p></div>').join('')+'</div>');
 const CT=[["mail","E-mail","georgederickk@gmail.com","mailto:georgederickk@gmail.com"],["phone","Telefone","(11) 95370-6785","tel:+5511953706785"],["in","LinkedIn","George Derick","https://linkedin.com/in/joseoliveira2624/"],["gh","GitHub","github.com/georgederick","https://github.com/georgederick"],["pin","Localização","São Paulo – SP, Brasil",""]];
 $('#ct').innerHTML=CT.map(([i,l,v,h])=>{const b=`<div class="card ct">${ic(i)}<div><p class="muted">${l}</p>${v}</div></div>`;return `<div class="rv">${h?`<a href="${h}"${h.startsWith('http')?' target="_blank" rel="noopener noreferrer"':''} style="display:block;height:100%">${b}</a>`:b}</div>`}).join('');
@@ -23,7 +22,6 @@ const tg=$('#tg'),m=$('#menu');tg.onclick=()=>{const o=m.classList.toggle('o');t
 const io='IntersectionObserver'in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{rootMargin:'0px 0px -60px'}):null;
 function obs(){document.querySelectorAll('.rv:not(.on)').forEach(e=>io?io.observe(e):e.classList.add('on'))}obs();
 
-// Interações: progresso, menu ativo, brilho do mouse, texto digitado e faixa de tecnologias
 (()=>{const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const pg=$('#prog'),links=[...document.querySelectorAll('nav a[href^="#"]')],secs=links.map(a=>$(a.getAttribute('href')));
 function sc(){const h=document.documentElement;pg.style.width=(scrollY/((h.scrollHeight-innerHeight)||1)*100)+'%';let c=-1;secs.forEach((s,i)=>{if(s&&s.getBoundingClientRect().top<=140)c=i});links.forEach((a,i)=>a.classList.toggle('act',i===c))}
