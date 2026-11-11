@@ -9,7 +9,6 @@ $('#sk').innerHTML=SK.map(([i,t,l,n])=>`<div class="card rv${n?' feat':''}"><div
 const gh='https://github.com/georgederick/',pg='https://georgederick.github.io/';
 const PJ=[
 {t:"Conecta Tech",k:"Site educacional",d:"Site educacional voltado para quem quer aprender programação.",tech:["JavaScript","CSS","HTML"],r:[],img:"img/conecta-tech.png",demo:pg+"Conecta-Tech/",repo:gh+"Conecta-Tech"},
-{t:"Seleção de perfis da Netflix",k:"Recriação de interface",d:"Recriação da página de seleção de perfis da Netflix.",tech:["CSS"],r:[],img:"img/netflix-perfis.png",demo:pg+"selection-netflix-profiles/",repo:gh+"selection-netflix-profiles"},
 {t:"Atlas Mundial",k:"Mapa Mundi",d:"Mapa Mundi digitalmente/virtual interativo.",tech:["JavaScript","CSS","HTML","Bootstrap"],r:[],img:"img/atlas-mundial.png",demo:pg+"atlas-mundi/",repo:gh+"atlas-mundi"},
 {t:"The Golden Pig",k:"E-commerce",d:"E-commerce de uma joalheria.",tech:["JavaScript","CSS","HTML","Bootstrap"],r:[],img:"img/the-golden-pig.png",demo:pg+"the-golden-pig/",repo:gh+"the-golden-pig"},
 {t:"Flua",k:"Gestor de tarefas",d:"Aplicação web de gestão de tarefas, projetos e equipe, com navegação lateral estilo app desktop, quadro Kanban, calendário e painel de indicadores",tech:["JavaScript","CSS","HTML"],r:[],img:"img/flua.png",demo:pg+"Flua/",repo:gh+"Flua"},
